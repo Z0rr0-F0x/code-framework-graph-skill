@@ -1,4 +1,4 @@
-# Code Framework Graph Generator
+# Code Framework Graph Generator Skill
 
 A skill for analyzing code project structure and generating hierarchical Mermaid framework diagrams showing module relationships, dependencies, and data flow.
 
