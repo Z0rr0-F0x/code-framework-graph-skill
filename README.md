@@ -135,6 +135,30 @@ This skill is designed to be used by AI assistants to analyze code projects. The
 4. **Phase 4 - Graph Building**: Construct hierarchical graph structure
 5. **Phase 5 - Mermaid Generation**: Convert graph to Mermaid diagram syntax
 
+### Quick Start Examples
+
+Simply invoke the skill with a natural language prompt:
+
+**Example 1 - Basic Usage:**
+```
+Generate a framework diagram for this project
+```
+
+**Example 2 - With Specific Focus:**
+```
+Analyze the architecture of this codebase and generate a Mermaid diagram focusing on the core modules
+```
+
+**Example 3 - For a Specific Language:**
+```
+Create a dependency graph for this Python project showing module relationships
+```
+
+**Example 4 - With Output Format:**
+```
+Generate a framework diagram and save it as both Mermaid and PNG files
+```
+
 ### Files
 
 ```
