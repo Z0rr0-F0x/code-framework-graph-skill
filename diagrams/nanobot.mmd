@@ -1,0 +1,91 @@
+graph TD
+    subgraph "CLI (Entry Point)"
+        N__main___py["__main__.py"]
+        Ncli_commands_py["commands.py"]
+    end
+    subgraph "Agent Core"
+        Nagent_loop_py["loop.py"]
+        Nagent_context_py["context.py"]
+        Nagent_skills_py["skills.py"]
+        Nagent_subagent_py["subagent.py"]
+        Nagent_memory_py["memory.py"]
+        Nagent_tools["tools/"]
+    end
+    subgraph "Communication Channels"
+        Nchannels_base_py["base.py"]
+        Nchannels_manager_py["manager.py"]
+        Nchannels_telegram_py["telegram.py"]
+        Nchannels_whatsapp_py["whatsapp.py"]
+        Nchannels_discord_py["discord.py"]
+        Nchannels_slack_py["slack.py"]
+        Nchannels_feishu_py["feishu.py"]
+        Nchannels_dingtalk_py["dingtalk.py"]
+        Nchannels_email_py["email.py"]
+        Nchannels_mochat_py["mochat.py"]
+        Nchannels_qq_py["qq.py"]
+    end
+    subgraph "LLM Providers"
+        Nproviders_base_py["base.py"]
+        Nproviders_registry_py["registry.py"]
+        Nproviders_litellm_provider_py["litellm_provider.py"]
+        Nproviders_openai_codex_provider_py["openai_codex_provider.py"]
+    end
+    subgraph "Message Bus"
+        Nbus_queue_py["queue.py"]
+        Nbus_events_py["events.py"]
+    end
+    subgraph "Configuration"
+        Nconfig_schema_py["schema.py"]
+    end
+    subgraph "Scheduler"
+        Ncron_service_py["service.py"]
+        Ncron_types_py["types.py"]
+    end
+    subgraph "Skills"
+        Nskills_github["github/"]
+        Nskills_memory["memory/"]
+        Nskills_weather["weather/"]
+        Nskills_tmux["tmux/"]
+        Nskills_summarize["summarize/"]
+        Nskills_skill_creator["skill-creator/"]
+    end
+    subgraph "Session Management"
+        Nsession_manager_py["manager.py"]
+    end
+    subgraph "Heartbeat"
+        Nheartbeat_service_py["service.py"]
+    end
+    subgraph "Utilities"
+        Nutils_helpers_py["helpers.py"]
+    end
+    N__main___py -->|import| Ncli_commands_py
+    Ncli_commands_py -->|creates agent loop| Nagent_loop_py
+    Ncli_commands_py -->|manages channels| Nchannels_manager_py
+    Ncli_commands_py -->|creates message bus| Nbus_queue_py
+    Ncli_commands_py -->|creates LLM provider| Nproviders_litellm_provider_py
+    Ncli_commands_py -->|import| Nconfig_schema_py
+    Ncli_commands_py -->|import| Ncron_service_py
+    Ncli_commands_py -->|import| Nsession_manager_py
+    Ncli_commands_py -->|import| Nheartbeat_service_py
+    Nagent_loop_py -->|uses LLM provider| Nproviders_base_py
+    Nagent_loop_py -->|import| Nagent_context_py
+    Nagent_loop_py -->|import| Nagent_skills_py
+    Nagent_loop_py -->|import| Nagent_tools
+    Nagent_loop_py -->|import| Nbus_events_py
+    Nagent_skills_py -->|call| Nskills_github
+    Nagent_skills_py -->|call| Nskills_memory
+    Nagent_skills_py -->|call| Nskills_weather
+    Nchannels_manager_py -->|import| Nchannels_base_py
+    Nchannels_manager_py -->|call| Nchannels_telegram_py
+    Nchannels_manager_py -->|call| Nchannels_whatsapp_py
+    Nchannels_manager_py -->|call| Nchannels_discord_py
+    Nchannels_manager_py -->|call| Nchannels_slack_py
+    Nchannels_telegram_py -->|inheritance| Nchannels_base_py
+    Nchannels_whatsapp_py -->|inheritance| Nchannels_base_py
+    Nchannels_discord_py -->|inheritance| Nchannels_base_py
+    Nchannels_slack_py -->|inheritance| Nchannels_base_py
+    Nproviders_litellm_provider_py -->|inheritance| Nproviders_base_py
+    Nproviders_openai_codex_provider_py -->|inheritance| Nproviders_base_py
+    Nproviders_registry_py -->|reference| Nproviders_base_py
+    Ncron_service_py -->|import| Nbus_events_py
+    Nheartbeat_service_py -->|triggers agent| Nagent_loop_py

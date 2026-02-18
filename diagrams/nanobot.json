@@ -1,0 +1,173 @@
+{
+  "high_level": {
+    "id": "nanobot",
+    "label": "nanobot",
+    "nodes": [],
+    "children": [
+      {
+        "id": "cli",
+        "label": "CLI (Entry Point)",
+        "nodes": [
+          {"id": "__main__.py", "label": "__main__.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"entry_point": true, "description": "Module entry point"}},
+          {"id": "cli/commands.py", "label": "commands.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "CLI commands using Typer"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "agent",
+        "label": "Agent Core",
+        "nodes": [
+          {"id": "agent/loop.py", "label": "loop.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"core_module": true, "description": "Agent loop orchestration"}},
+          {"id": "agent/context.py", "label": "context.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Agent context management"}},
+          {"id": "agent/skills.py", "label": "skills.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Skill execution"}},
+          {"id": "agent/subagent.py", "label": "subagent.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Subagent management"}},
+          {"id": "agent/memory.py", "label": "memory.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Agent memory handling"}},
+          {"id": "agent/tools", "label": "tools/", "level": "high", "node_type": "directory", "language": "python", "metadata": {"description": "Built-in tools"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "channels",
+        "label": "Communication Channels",
+        "nodes": [
+          {"id": "channels/base.py", "label": "base.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Channel base class"}},
+          {"id": "channels/manager.py", "label": "manager.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Channel manager"}},
+          {"id": "channels/telegram.py", "label": "telegram.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/whatsapp.py", "label": "whatsapp.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/discord.py", "label": "discord.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/slack.py", "label": "slack.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/feishu.py", "label": "feishu.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/dingtalk.py", "label": "dingtalk.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/email.py", "label": "email.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/mochat.py", "label": "mochat.py", "level": "high", "node_type": "file", "language": "python"},
+          {"id": "channels/qq.py", "label": "qq.py", "level": "high", "node_type": "file", "language": "python"}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "providers",
+        "label": "LLM Providers",
+        "nodes": [
+          {"id": "providers/base.py", "label": "base.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Provider base class"}},
+          {"id": "providers/registry.py", "label": "registry.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Provider registry"}},
+          {"id": "providers/litellm_provider.py", "label": "litellm_provider.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "LiteLLM integration"}},
+          {"id": "providers/openai_codex_provider.py", "label": "openai_codex_provider.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "OpenAI Codex provider"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "bus",
+        "label": "Message Bus",
+        "nodes": [
+          {"id": "bus/queue.py", "label": "queue.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Message queue"}},
+          {"id": "bus/events.py", "label": "events.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Event definitions"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "config",
+        "label": "Configuration",
+        "nodes": [
+          {"id": "config/schema.py", "label": "schema.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Config schema"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "cron",
+        "label": "Scheduler",
+        "nodes": [
+          {"id": "cron/service.py", "label": "service.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Cron service"}},
+          {"id": "cron/types.py", "label": "types.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Cron types"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "skills",
+        "label": "Skills",
+        "nodes": [
+          {"id": "skills/github", "label": "github/", "level": "high", "node_type": "directory", "language": "python"},
+          {"id": "skills/memory", "label": "memory/", "level": "high", "node_type": "directory", "language": "python"},
+          {"id": "skills/weather", "label": "weather/", "level": "high", "node_type": "directory", "language": "python"},
+          {"id": "skills/tmux", "label": "tmux/", "level": "high", "node_type": "directory", "language": "python"},
+          {"id": "skills/summarize", "label": "summarize/", "level": "high", "node_type": "directory", "language": "python"},
+          {"id": "skills/skill-creator", "label": "skill-creator/", "level": "high", "node_type": "directory", "language": "python"}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "session",
+        "label": "Session Management",
+        "nodes": [
+          {"id": "session/manager.py", "label": "manager.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Session manager"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "heartbeat",
+        "label": "Heartbeat",
+        "nodes": [
+          {"id": "heartbeat/service.py", "label": "service.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Heartbeat service"}}
+        ],
+        "edges": [],
+        "children": []
+      },
+      {
+        "id": "utils",
+        "label": "Utilities",
+        "nodes": [
+          {"id": "utils/helpers.py", "label": "helpers.py", "level": "high", "node_type": "file", "language": "python", "metadata": {"description": "Helper functions"}}
+        ],
+        "edges": [],
+        "children": []
+      }
+    ]
+  },
+  "edge_index": [
+    {"source": "__main__.py", "target": "cli/commands.py", "type": "import"},
+    {"source": "cli/commands.py", "target": "agent/loop.py", "type": "import", "metadata": {"semantics": {"business_description": "creates agent loop"}}},
+    {"source": "cli/commands.py", "target": "channels/manager.py", "type": "import", "metadata": {"semantics": {"business_description": "manages channels"}}},
+    {"source": "cli/commands.py", "target": "bus/queue.py", "type": "import", "metadata": {"semantics": {"business_description": "creates message bus"}}},
+    {"source": "cli/commands.py", "target": "providers/litellm_provider.py", "type": "import", "metadata": {"semantics": {"business_description": "creates LLM provider"}}},
+    {"source": "cli/commands.py", "target": "config/schema.py", "type": "import"},
+    {"source": "cli/commands.py", "target": "cron/service.py", "type": "import"},
+    {"source": "cli/commands.py", "target": "session/manager.py", "type": "import"},
+    {"source": "cli/commands.py", "target": "heartbeat/service.py", "type": "import"},
+    {"source": "agent/loop.py", "target": "providers/base.py", "type": "import", "metadata": {"semantics": {"business_description": "uses LLM provider"}}},
+    {"source": "agent/loop.py", "target": "agent/context.py", "type": "import"},
+    {"source": "agent/loop.py", "target": "agent/skills.py", "type": "import"},
+    {"source": "agent/loop.py", "target": "agent/tools", "type": "import"},
+    {"source": "agent/loop.py", "target": "bus/events.py", "type": "import"},
+    {"source": "agent/skills.py", "target": "skills/github", "type": "call"},
+    {"source": "agent/skills.py", "target": "skills/memory", "type": "call"},
+    {"source": "agent/skills.py", "target": "skills/weather", "type": "call"},
+    {"source": "channels/manager.py", "target": "channels/base.py", "type": "import"},
+    {"source": "channels/manager.py", "target": "channels/telegram.py", "type": "call"},
+    {"source": "channels/manager.py", "target": "channels/whatsapp.py", "type": "call"},
+    {"source": "channels/manager.py", "target": "channels/discord.py", "type": "call"},
+    {"source": "channels/manager.py", "target": "channels/slack.py", "type": "call"},
+    {"source": "channels/telegram.py", "target": "channels/base.py", "type": "inheritance"},
+    {"source": "channels/whatsapp.py", "target": "channels/base.py", "type": "inheritance"},
+    {"source": "channels/discord.py", "target": "channels/base.py", "type": "inheritance"},
+    {"source": "channels/slack.py", "target": "channels/base.py", "type": "inheritance"},
+    {"source": "providers/litellm_provider.py", "target": "providers/base.py", "type": "inheritance"},
+    {"source": "providers/openai_codex_provider.py", "target": "providers/base.py", "type": "inheritance"},
+    {"source": "providers/registry.py", "target": "providers/base.py", "type": "reference"},
+    {"source": "cron/service.py", "target": "bus/events.py", "type": "import"},
+    {"source": "heartbeat/service.py", "target": "agent/loop.py", "type": "call", "metadata": {"semantics": {"business_description": "triggers agent"}}}
+  ],
+  "metadata": {
+    "total_nodes": 35,
+    "total_edges": 31,
+    "entry_points": ["__main__.py", "cli/commands.py"],
+    "core_modules": ["agent/loop.py", "channels/manager.py", "providers/registry.py"]
+  }
+}
